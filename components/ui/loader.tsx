@@ -1,7 +1,7 @@
 "use client";
 
-import { ClipLoader } from "react-spinners";
+import { GridLoader } from "react-spinners";
 
 export const Loader = () => {
-  return <ClipLoader color="#3498db" size={50} />
+  return <GridLoader color="#94a3b8" size={20} margin={5} />
 };

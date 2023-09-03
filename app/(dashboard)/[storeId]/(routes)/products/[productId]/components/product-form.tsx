@@ -273,7 +273,6 @@ export const ProductForm: React.FC<ProductFormProps> = ({
                       ))}
                     </SelectContent>
                   </Select>
-
                   <FormMessage />
                 </FormItem>
               )}
@@ -323,6 +322,7 @@ export const ProductForm: React.FC<ProductFormProps> = ({
                 <FormItem className="flex flex-row item-start space-x-3 space-y-0 rounded-md border p-4">
                   <FormControl>
                     <Checkbox
+                      disabled={loading}
                       checked={field.value}
                       // @ts-ignore
                       onCheckedChange={field.onChange}
@@ -344,6 +344,7 @@ export const ProductForm: React.FC<ProductFormProps> = ({
                 <FormItem className="flex flex-row item-start space-x-3 space-y-0 rounded-md border p-4">
                   <FormControl>
                     <Checkbox
+                      disabled={loading}
                       checked={field.value}
                       // @ts-ignore
                       onCheckedChange={field.onChange}

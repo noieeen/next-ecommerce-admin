@@ -129,7 +129,7 @@ export const BillboardForm: React.FC<BillboardFormProps> = ({
           onSubmit={form.handleSubmit(onSubmit)}
           className="space-y-8 w-full"
         >
-          {" "}
+          
           <FormField
             control={form.control}
             name="imageUrl"

@@ -77,7 +77,7 @@ export default function StoreSwitcher({
         </Button>
       </PopoverTrigger>
       <PopoverContent className="w-[200px] p-0">
-        {" "}
+        
         <Command>
           <CommandList>
             <CommandInput placeholder="Search store..." />

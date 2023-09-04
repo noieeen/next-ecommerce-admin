@@ -5,6 +5,8 @@ import { NextResponse } from "next/server";
 import { stripe } from "@/lib/stripe";
 import prismadb from "@/lib/prismadb";
 
+const relevantEvents = new Set(["checkout.session.completed"]);
+
 export async function POST(req: Request) {
   const body = await req.text();
   const signature = headers().get("Stripe-Signature");
@@ -35,7 +37,7 @@ export async function POST(req: Request) {
   const addressString = addressComponents.filter((c) => c !== null).join(", ");
 
   try {
-    if (event.type === "checkout.session.completed") {
+    if (event.type == "checkout.session.completed") {
       const order = await prismadb.order.update({
         where: {
           id: session?.metadata?.orderId,

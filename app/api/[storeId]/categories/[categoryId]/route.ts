@@ -54,6 +54,9 @@ export async function PATCH(
         id: params.storeId,
         userId,
       },
+      include: {
+        categories: true,
+      },
     });
 
     if (!storeByUserId) {

@@ -15,6 +15,9 @@ export async function GET(
       where: {
         id: params.categoryId,
       },
+      include: {
+        billboard: true,
+      },
     });
 
     return NextResponse.json(category);
@@ -53,9 +56,6 @@ export async function PATCH(
       where: {
         id: params.storeId,
         userId,
-      },
-      include: {
-        categories: true,
       },
     });
 

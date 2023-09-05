@@ -3,8 +3,14 @@ import { format } from "date-fns";
 import prismadb from "@/lib/prismadb";
 import { ColorClient } from "./components/client";
 import { ColorColumn } from "./components/columns";
+import { Metadata } from "next";
 
-const BillboardsPage = async ({ params }: { params: { storeId: string } }) => {
+export const metadata: Metadata = {
+  title: "Admin Dashboard - Color",
+  description: "Admin Dashboard - Color",
+};
+
+const ColorsPage = async ({ params }: { params: { storeId: string } }) => {
   const colors = await prismadb.color.findMany({
     where: {
       storeId: params.storeId,
@@ -30,4 +36,4 @@ const BillboardsPage = async ({ params }: { params: { storeId: string } }) => {
   );
 };
 
-export default BillboardsPage;
+export default ColorsPage;

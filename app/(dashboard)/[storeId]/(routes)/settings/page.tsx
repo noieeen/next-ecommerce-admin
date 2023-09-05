@@ -2,6 +2,12 @@ import prismadb from "@/lib/prismadb";
 import { auth } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
 import { SettingsForm } from "./components/settings-form";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Admin Dashboard - Setting",
+  description: "Admin Dashboard - Setting",
+};
 
 interface SettingsPageProps {
   params: {

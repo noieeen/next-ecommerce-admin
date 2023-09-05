@@ -4,6 +4,12 @@ import prismadb from "@/lib/prismadb";
 import { ProductClient } from "./components/client";
 import { ProductColumn } from "./components/columns";
 import { formatter } from "@/lib/utils";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Admin Dashboard - Product",
+  description: "Admin Dashboard - Product",
+};
 
 const ProductsPage = async ({ params }: { params: { storeId: string } }) => {
   const sizes = await prismadb.product.findMany({

@@ -3,8 +3,14 @@ import { format } from "date-fns";
 import prismadb from "@/lib/prismadb";
 import { SizeClient } from "./components/client";
 import { SizeColumn } from "./components/columns";
+import { Metadata } from "next";
 
-const BillboardsPage = async ({ params }: { params: { storeId: string } }) => {
+export const metadata: Metadata = {
+  title: "Admin Dashboard - Size",
+  description: "Admin Dashboard - Size",
+};
+
+const SizesPage = async ({ params }: { params: { storeId: string } }) => {
   const sizes = await prismadb.size.findMany({
     where: {
       storeId: params.storeId,
@@ -30,4 +36,4 @@ const BillboardsPage = async ({ params }: { params: { storeId: string } }) => {
   );
 };
 
-export default BillboardsPage;
+export default SizesPage;

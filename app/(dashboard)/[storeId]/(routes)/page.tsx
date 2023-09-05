@@ -1,7 +1,11 @@
-import { getGraphRevenue } from "@/actions/get-graph-revenue";
+import {
+  getMonthlyGraphRevenue,
+  getWeeklyGraphRevenue,
+} from "@/actions/get-graph-revenue";
 import { getStockCount } from "@/actions/get-products-stock";
 import { getSalesCount } from "@/actions/get-sales-count";
 import { getTotalRevenue } from "@/actions/get-total-revenue";
+import BarChart from "@/components/charts/bar-chart";
 import LineChart from "@/components/charts/line-chart";
 import Overview from "@/components/overview";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -26,7 +30,8 @@ const DashboardPage: React.FC<DashboardPageProps> = async ({ params }) => {
   const salesCount = await getSalesCount(params.storeId);
   const stockCount = await getStockCount(params.storeId);
 
-  const overviewData = await getGraphRevenue(params.storeId);
+  const overviewDataMonthly = await getMonthlyGraphRevenue(params.storeId);
+  const overviewDataWeekly = await getWeeklyGraphRevenue(params.storeId);
 
   return (
     <div className="flex-col">
@@ -70,10 +75,18 @@ const DashboardPage: React.FC<DashboardPageProps> = async ({ params }) => {
         </div>
         <Card className="col-span-4">
           <CardHeader>
-            <CardTitle>Overview</CardTitle>
+            <CardTitle>Overview Weekly</CardTitle>
           </CardHeader>
           <CardContent className="pl-2">
-            <Overview data={overviewData} />
+            <LineChart data={overviewDataWeekly} />
+          </CardContent>
+        </Card>
+        <Card className="col-span-4">
+          <CardHeader>
+            <CardTitle>Overview Monthly</CardTitle>
+          </CardHeader>
+          <CardContent className="pl-2">
+            <BarChart data={overviewDataMonthly} />
           </CardContent>
         </Card>
       </div>

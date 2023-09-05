@@ -27,7 +27,7 @@ const LineChart: React.FC<LineChartProps> = ({ data }) => {
         <Line
           type="monotone"
           dataKey="total"
-          fill="#8884d8"
+          stroke="#8884d8"
           activeDot={{ r: 5 }}
         />
       </RechartLineChart>

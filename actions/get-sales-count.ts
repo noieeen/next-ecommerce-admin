@@ -6,6 +6,7 @@ export const getSalesCount = async (storeId: string) => {
       storeId,
       isPaid: true,
     },
+    cacheStrategy: { ttl: 60 },
   });
 
   return saleCount;

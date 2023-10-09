@@ -13,6 +13,7 @@ export const getTotalRevenue = async (storeId: string) => {
         },
       },
     },
+    cacheStrategy: { ttl: 60 },
   });
 
   const totalRevenue = paidOrders.reduce((total, order) => {

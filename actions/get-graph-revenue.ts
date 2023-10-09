@@ -18,6 +18,7 @@ export const getMonthlyGraphRevenue = async (storeId: string) => {
         },
       },
     },
+    cacheStrategy: { ttl: 60 },
   });
 
   const monthlyRevenue: { [key: number]: number } = {};

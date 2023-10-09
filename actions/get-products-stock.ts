@@ -6,6 +6,7 @@ export const getStockCount = async (storeId: string) => {
       storeId,
       isArchived: false,
     },
+    cacheStrategy: { ttl: 60 },
   });
 
   return stockCount;

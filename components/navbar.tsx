@@ -17,6 +17,7 @@ const Navbar = async () => {
     where: {
       userId,
     },
+    cacheStrategy: { ttl: 60 },
   });
 
   return (
